@@ -1,6 +1,6 @@
 {
-    "name": "Proyecto Symfony Imagina formacion",
-    "authors": {
+    "name": "symfony/proyecto-imagina-formacion",
+        "authors": {
             "name": "Juan Urarte",
             "email": "juan.urarte@gmail.com",
             "role": "Developer"
