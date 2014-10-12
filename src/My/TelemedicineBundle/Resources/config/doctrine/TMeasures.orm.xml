@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="My\TelemedicineBundle\Entity\TMeasures" table="t_measures">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="measurename" type="string" column="MeasureName" length="45" nullable="true"/>
+    <field name="measurecode" type="string" column="MeasureCode" length="45" nullable="true"/>
+    <field name="measurepicture" type="string" column="MeasurePicture" length="45" nullable="true"/>
+  </entity>
+</doctrine-mapping>

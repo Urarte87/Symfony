@@ -1,0 +1,4 @@
+my_telemedicine:
+    resource: "@MyTelemedicineBundle/Resources/config/routing.yml"
+    prefix:   /
+

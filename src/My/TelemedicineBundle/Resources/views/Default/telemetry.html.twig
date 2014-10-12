@@ -1,0 +1,9 @@
+{% extends '::base.html.twig' %}
+
+{% block container %}
+
+    {% for measure in measures %}
+        <h1>{{ measure.MeasureName}} {{ measure.MeasureCode}}</h1>
+    {% endfor %}
+
+{% endblock %}

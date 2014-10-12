@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="My\TelemedicineBundle\Entity\TThresholds" table="t_thresholds">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="idMeasure" type="integer" column="id_measure" nullable="true"/>
+    <field name="maxvalue" type="integer" column="maxValue" nullable="true"/>
+    <field name="minvalue" type="integer" column="minValue" nullable="true"/>
+  </entity>
+</doctrine-mapping>

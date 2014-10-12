@@ -1,0 +1,7 @@
+my_telemedicine_homepage:
+    path:     /index/
+    defaults: { _controller: MyTelemedicineBundle:Default:index }
+
+my_telemedicine_telemetry:
+    path: /telemetry/
+    defaults: { _controller: MyTelemedicineBundle:Default:telemetry }
