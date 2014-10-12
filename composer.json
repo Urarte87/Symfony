@@ -1,5 +1,10 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "symfony/proyecto-imagina-formacion",
+    "author": {
+            "name": "Juan Urarte",
+            "email": "juan.urarte@gmail.com",
+            "role": "Developer"
+    },
     "license": "MIT",
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
