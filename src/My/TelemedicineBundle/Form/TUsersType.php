@@ -15,9 +15,10 @@ class TUsersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('user')
-            ->add('password')
+         ->add('user')
+         ->add('password','text')
         ;
+
     }
     
     /**
