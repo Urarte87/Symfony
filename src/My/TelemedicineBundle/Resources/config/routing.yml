@@ -13,3 +13,7 @@ my_telemedicine_telemetry:
 my_telemedicine_formularios:
     path: /formularios/
     defaults: { _controller: MyTelemedicineBundle:Default:formularios }
+    
+my_telemedicine_test:
+    path: /test/
+    defaults: { _controller: MyTelemedicineBundle:Default:test }

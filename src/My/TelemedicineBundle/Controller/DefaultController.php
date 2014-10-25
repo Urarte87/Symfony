@@ -11,6 +11,9 @@ use My\TelemedicineBundle\Form\Type\TMeasuresType;
 use Symfony\Component\HttpFoundation\Request;
 
 
+use My\TelemedicineBundle\Model\Formularios;
+
+
 
 
 
@@ -20,6 +23,35 @@ class DefaultController extends Controller
     {
         return $this->render('MyTelemedicineBundle:Default:index.html.twig');
     }
+    
+    
+        public function testAction()
+    {
+            
+         $a=$this->get('my_telemedicine.model.Coche');
+         
+   
+         $b=$a->Arranca();
+         echo $b;
+         $b=$a->Start();
+         echo $b;
+         
+     
+        
+       /* $container->setParameter('ruido', 'BRUM');
+        $container->setParameter('noise', 'BROOM');
+          
+        
+        
+        $container->register('newclass', 'My\TelemedicineBundle\Model\newClass')
+                   ->addArgument('%ruido%')
+                   ->addArgument('%noise%');*/
+        
+    
+        
+        return $this->render('MyTelemedicineBundle:Default:index.html.twig');
+    }
+    
     
     
         public function telemetryAction()
@@ -33,46 +65,24 @@ class DefaultController extends Controller
         public function formulariosAction(Request $request)
     {
 
-        //FORMULARIO USUARIOS
-        $user = new TUsers();
-        $formUser = $this->createForm(new TUsersType(), $user);
-        $formUser->handleRequest($request);
-        
-        if ($formUser->isValid()) {
-            $em= $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-            return $this->redirect($this->generateUrl('my_telemedicine_formularios',array('id' => $user->getId())));
-        }
-        
-        //FORMULARIO THRESHOLDS
-        $threshold = new TThresholds();
-        $formThreshold = $this->createForm(new TThresholdsType(), $threshold);
-        $formThreshold->handleRequest($request);
-        
-        if ($formThreshold->isValid()) {
-            $em= $this->getDoctrine()->getManager();
-            $em->persist($threshold);
-            $em->flush();
-           
-            return $this->redirect($this->generateUrl('my_telemedicine_formularios',array('id' => $threshold->getId())));
-        }
-        
-        
-        //FORMULARIO MEASURES
         $measure = new TMeasures();
         $formMeasure= $this->createForm(new TMeasuresType(), $measure);
         $formMeasure->handleRequest($request);
         
-        if ($formMeasure->isValid()) {
-            $em= $this->getDoctrine()->getManager();
-            $em->persist($measure);
-            $em->flush();
-            return $this->redirect($this->generateUrl('my_telemedicine_formularios',array('id' => $measure->getId())));
+        
+       // $formulario = new Formularios($measure,$this->getDoctrine()->getManager());
+        
+        
+        $formulario=$this->get('my_telemedicine.model.Formularios');
+        
+        $id=$formulario->Valida($formMeasure);
+        if ($id) {
+             return $this->redirect($this->generateUrl('my_telemedicine_formularios',array('id' => $id)));
         }
         
-        
-
-        return $this->render('MyTelemedicineBundle:Default:formularios.html.twig', array('formMeasure' => $formMeasure->createView(),'form' => $formUser->createView(),'formThreshold' => $formThreshold->createView()));
+      
+            
+    
+       return $this->render('MyTelemedicineBundle:Default:formularios.html.twig', array('formMeasure' => $formMeasure->createView()));
     }
 }
