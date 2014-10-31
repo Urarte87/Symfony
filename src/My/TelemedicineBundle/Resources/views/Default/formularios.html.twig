@@ -1,0 +1,92 @@
+{% extends '::base.html.twig' %}
+
+{% block container %}
+
+    {{ form_start(form, {'attr': {'id': 'form_user_insert'}}) }}
+    {{ form_errors(form)}}
+    <ul>
+        
+        
+        <li>
+            {{ form_label(form.user) }}
+            {{ form_errors(form.user) }}
+            {{ form_widget(form.user) }}
+        </li>
+        
+           <li>
+            {{ form_label(form.password) }}
+            {{ form_errors(form.password) }}
+            {{ form_widget(form.password) }}
+        </li>
+        
+        <li>
+            {{ form_widget(form.save) }}
+        </li>
+    </ul>
+  {{ form_end(form)}}
+  
+  
+  
+   {{ form_start(formThreshold, {'attr': {'id': 'form_threhold_insert'}}) }}
+    {{ form_errors(formThreshold)}}
+    <ul>
+        
+        
+        <li>
+            {{ form_label(formThreshold.id_measure) }}
+            {{ form_errors(formThreshold.id_measure) }}
+            {{ form_widget(formThreshold.id_measure) }}
+        </li>
+        
+        <li>
+            {{ form_label(formThreshold.maximValue) }}
+            {{ form_errors(formThreshold.maximValue) }}
+            {{ form_widget(formThreshold.maximValue) }}
+        </li>
+        
+        <li>
+            {{ form_label(formThreshold.minValue) }}
+            {{ form_errors(formThreshold.minValue) }}
+            {{ form_widget(formThreshold.minValue) }}
+        </li>
+        
+        <li>
+            {{ form_widget(formThreshold.save) }}
+        </li>
+    </ul>
+  {{ form_end(formThreshold)}}
+  
+
+  
+    {{ form_start(formMeasure, {'attr': {'id': 'form_measure_insert'}}) }}
+    {{ form_errors(formMeasure)}}
+    <ul>
+        
+        
+        <li>
+            {{ form_label(formMeasure.MeasureName) }}
+            {{ form_errors(formMeasure.MeasureName) }}
+            {{ form_widget(formMeasure.MeasureName) }}
+        </li>
+        
+        <li>
+            {{ form_label(formMeasure.MeasureCode) }}
+            {{ form_errors(formMeasure.MeasureCode) }}
+            {{ form_widget(formMeasure.MeasureCode) }}
+        </li>
+        
+        <li>
+            {{ form_label(formMeasure.MeasurePicture) }}
+            {{ form_errors(formMeasure.MeasurePicture) }}
+            {{ form_widget(formMeasure.MeasurePicture) }}
+        </li>
+        
+        <li>
+            {{ form_widget(formMeasure.save) }}
+        </li>
+    </ul>
+  {{ form_end(formMeasure)}}
+  
+   
+
+{% endblock %}

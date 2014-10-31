@@ -5,7 +5,7 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="idMeasure" type="integer" column="id_measure" nullable="true"/>
-    <field name="maxvalue" type="integer" column="maxValue" nullable="true"/>
+    <field name="maximvalue" type="integer" column="maximValue" nullable="true"/>
     <field name="minvalue" type="integer" column="minValue" nullable="true"/>
   </entity>
 </doctrine-mapping>

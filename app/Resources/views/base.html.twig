@@ -34,6 +34,20 @@
             {% else %}
             <li><a href="../telemetry">Telemetria</a></li>
             {% endif %}
+            
+             {% if 'formularios' in path(app.request.attributes.get('_route')) %}
+            <li class="active"><a href="../formularios">Formularios</a></li>
+            {% else %}
+            <li><a href="../formularios">Formularios</a></li>
+            {% endif %}
+             
+             
+             
+            {% if 'tusers' in path(app.request.attributes.get('_route')) %}
+            <li class="active"><a href="../tusers">Users</a></li>
+            {% else %}
+            <li><a href="../tusers">Users</a></li>
+            {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>

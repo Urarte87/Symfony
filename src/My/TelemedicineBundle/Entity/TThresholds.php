@@ -17,7 +17,7 @@ class TThresholds
     /**
      * @var integer
      */
-    private $maxvalue;
+    private $maximvalue;
 
     /**
      * @var integer
@@ -54,26 +54,26 @@ class TThresholds
     }
 
     /**
-     * Set maxvalue
+     * Set maximvalue
      *
-     * @param integer $maxvalue
+     * @param integer $maximvalue
      * @return TThresholds
      */
-    public function setMaxvalue($maxvalue)
+    public function setMaximvalue($maximvalue)
     {
-        $this->maxvalue = $maxvalue;
+        $this->maximvalue = $maximvalue;
 
         return $this;
     }
 
     /**
-     * Get maxvalue
+     * Get maximvalue
      *
      * @return integer 
      */
-    public function getMaxvalue()
+    public function getMaximvalue()
     {
-        return $this->maxvalue;
+        return $this->maximvalue;
     }
 
     /**

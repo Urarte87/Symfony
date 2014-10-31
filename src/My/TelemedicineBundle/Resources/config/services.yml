@@ -2,3 +2,10 @@ services:
 #    my_telemedicine.example:
 #        class: My\TelemedicineBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+
+ my_telemedicine.type.measure_selector:
+        class: My\TelemedicineBundle\Form\Type\MeasureSelectorType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+                - { name: form.type, alias: measure_selector }

@@ -1,0 +1,12 @@
+My\TelemedicineBundle\Entity\TUsers:
+    
+    properties:
+        user:
+            - NotBlank: ~
+        password:
+             - NotBlank: ~
+             - Length:
+                min: 10
+                minMessage: "Password must be at least {{ limit }} characters long"
+            
+             
