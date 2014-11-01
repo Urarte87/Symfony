@@ -9,10 +9,9 @@ use My\TelemedicineBundle\Form\Type\TUsersType;
 use My\TelemedicineBundle\Form\Type\TThresholdsType;
 use My\TelemedicineBundle\Form\Type\TMeasuresType;
 use Symfony\Component\HttpFoundation\Request;
-
-
-use My\TelemedicineBundle\Model\Formularios;
-
+use Symfony\Component\EventDispatcher\EventDispatcher;
+use My\TelemedicineBundle\Event\AcmeListener;
+use My\TelemedicineBundle\Event\TUsersEvent;
 
 
 
@@ -28,13 +27,26 @@ class DefaultController extends Controller
         public function testAction()
     {
             
-         $a=$this->get('my_telemedicine.model.Coche');
+        
+           
+        //$dispatcher = new EventDispatcher();
+        //$listener = new AcmeListener();
+        //$dispatcher->addListener('foo.action', array($listener, 'onFooAction'));
+        
+       /* $dispatcher->addListener('foo.action', function ($event) {
+    echo 'Updating RSS feed' . PHP_EOL;
+});*/
+        
+        
+        //$dispatcher->dispatch('foo.action');
+         
+         /*$a=$this->get('my_telemedicine.model.Coche');
          
    
          $b=$a->Arranca();
          echo $b;
          $b=$a->Start();
-         echo $b;
+         echo $b;*/
          
      
         
@@ -65,24 +77,56 @@ class DefaultController extends Controller
         public function formulariosAction(Request $request)
     {
 
+        //FORMULARIO THRESHOLDS
+       /* $threshold = new TThresholds();
+        $formThreshold = $this->createForm(new TThresholdsType(), $threshold);
+        $formThreshold->handleRequest($request);
+        
+        if ($formThreshold->isValid()) {
+            $em= $this->getDoctrine()->getManager();
+            $em->persist($threshold);
+            $em->flush();
+           
+            return $this->redirect($this->generateUrl('my_telemedicine_formularios',array('id' => $threshold->getId())));
+        }
+        
+        
+        //FORMULARIO MEASURES
         $measure = new TMeasures();
         $formMeasure= $this->createForm(new TMeasuresType(), $measure);
         $formMeasure->handleRequest($request);
         
+        if ($formMeasure->isValid()) {
+            $em= $this->getDoctrine()->getManager();
+            $em->persist($measure);
+            $em->flush();
+            return $this->redirect($this->generateUrl('my_telemedicine_formularios',array('id' => $measure->getId())));
+        }*/
+
+       /* $dispatcher = new EventDispatcher();
+        $listener = new AcmeListener();
+        $dispatcher->addListener('foo.action', array($listener, 'onFooAction'));*/
         
-       // $formulario = new Formularios($measure,$this->getDoctrine()->getManager());
+
+  
+        //FORMULARIO USUARIOS
+        $user = new TUsers();
+        $formUser = $this->createForm(new TUsersType(), $user);
+        $formUser->handleRequest($request);
         
-        
-        $formulario=$this->get('my_telemedicine.model.Formularios');
-        
-        $id=$formulario->Valida($formMeasure);
-        if ($id) {
-             return $this->redirect($this->generateUrl('my_telemedicine_formularios',array('id' => $id)));
+        if ($formUser->isValid()) {
+            $em= $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            $this->get('event_dispatcher')->dispatch('foo.action',new TUsersEvent($user));
+            
+            //$dispatcher->dispatch('foo.action',$event);
+           // return $this->redirect($this->generateUrl('my_telemedicine_formularios',array('id' => $user->getId())));
         }
         
       
             
     
-       return $this->render('MyTelemedicineBundle:Default:formularios.html.twig', array('formMeasure' => $formMeasure->createView()));
+       return $this->render('MyTelemedicineBundle:Default:formularios.html.twig', array('form' => $formUser->createView()));
     }
 }

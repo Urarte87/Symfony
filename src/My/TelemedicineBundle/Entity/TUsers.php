@@ -23,6 +23,8 @@ class TUsers
      * @var integer
      */
     private $id;
+    
+    
 
 
     /**

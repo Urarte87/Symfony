@@ -3,34 +3,30 @@
 {% block container %}
 
 
-    {{ form_start(formMeasure, {'attr': {'id': 'form_measure_insert'}}) }}
-    {{ form_errors(formMeasure)}}
+    {{ form_start(form, {'attr': {'id': 'form_users_insert'}}) }}
+    {{ form_errors(form)}}
     <ul>
         
         
         <li>
-            {{ form_label(formMeasure.MeasureName) }}
-            {{ form_errors(formMeasure.MeasureName) }}
-            {{ form_widget(formMeasure.MeasureName) }}
+            {{ form_label(form.user) }}
+            {{ form_errors(form.user) }}
+            {{ form_widget(form.user) }}
         </li>
         
         <li>
-            {{ form_label(formMeasure.MeasureCode) }}
-            {{ form_errors(formMeasure.MeasureCode) }}
-            {{ form_widget(formMeasure.MeasureCode) }}
+            {{ form_label(form.password) }}
+            {{ form_errors(form.password) }}
+            {{ form_widget(form.password) }}
         </li>
         
-        <li>
-            {{ form_label(formMeasure.MeasurePicture) }}
-            {{ form_errors(formMeasure.MeasurePicture) }}
-            {{ form_widget(formMeasure.MeasurePicture) }}
-        </li>
+        
         
         <li>
-            {{ form_widget(formMeasure.save) }}
+            {{ form_widget(form.save) }}
         </li>
     </ul>
-  {{ form_end(formMeasure)}}
+  {{ form_end(form)}}
   
    
 
