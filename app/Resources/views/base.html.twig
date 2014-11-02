@@ -43,10 +43,10 @@
             {% endif %}
              
              
-            {% if 'tusers' in app.request.attributes.get('_route') %}
-            <li class="active"><a href="{{ path('tusers')}}">Users</a></li>
+            {% if 'user' in app.request.attributes.get('_route') %}
+            <li class="active"><a href="{{ path('user')}}">Usuarios</a></li>
             {% else %}
-            <li><a href="{{ path('tusers')}}">Users</a></li>
+            <li><a href="{{ path('user')}}">Usuarios</a></li>
             {% endif %}
           </ul>
         </div><!--/.nav-collapse -->

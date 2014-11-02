@@ -1,0 +1,13 @@
+my_user_user:
+    resource: "@MyUserBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+my_user_homepage:
+    path:     /registro/
+    defaults: { _controller: MyUserBundle:Default:index }
+
+
+user_insert:
+    path:     /insert
+    defaults: { _controller: "MyUserBundle:Default:insert" }
+    requirements: { _method: post }
