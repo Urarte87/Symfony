@@ -18,7 +18,10 @@ services:
         tags:
                 - { name: form.type, alias: measure_selector }
                 
-
+ my_telemedicine.Todasmedidas:
+    class: My\TelemedicineBundle\Model\Measures
+    arguments: ["@doctrine.orm.entity_manager"]
+    
                 
                 
                 

@@ -68,8 +68,9 @@ class DefaultController extends Controller
     
         public function telemetryAction()
     {
-        $repository = $this->getDoctrine()->getRepository('MyTelemedicineBundle:TMeasures');
-        $measures= $repository->findAll();
+        //$repository = $this->getDoctrine()->getRepository('MyTelemedicineBundle:TMeasures');
+        //$measures= $repository->findAll();
+        $measures=$this->get('my_telemedicine.Todasmedidas')->Todos();
         return $this->render('MyTelemedicineBundle:Default:telemetry.html.twig',array('measures' => $measures));
     }
     
