@@ -3,12 +3,18 @@ my_telemedicine_tusers:
     prefix:   /tusers
 
 my_telemedicine_homepage:
-    path:     /index/
+    path: /{_locale}/index/
     defaults: { _controller: MyTelemedicineBundle:Default:index }
+    requirements:
+        _locale: en|es
+   
+
 
 my_telemedicine_telemetry:
-    path: /telemetry/
+    path: /{_locale}/telemetry/
     defaults: { _controller: MyTelemedicineBundle:Default:telemetry }
+    requirements:
+        _locale: en|es
     
 my_telemedicine_formularios:
     path: /formularios/

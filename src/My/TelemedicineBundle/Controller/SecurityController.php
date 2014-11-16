@@ -9,6 +9,8 @@ class SecurityController extends Controller
 {
     public function loginAction(Request $request)
     {
+        
+        
         $session = $request->getSession();
 
         // get the login error if there is one

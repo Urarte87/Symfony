@@ -19,7 +19,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{{ path('my_telemedicine_homepage') }}">Telemedicina</a>
+          <a class="navbar-brand" href="{{ path('my_telemedicine_homepage') }}">{% trans %}Telemedicina{% endtrans %}</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -31,22 +31,9 @@
             {% endif %}
             
             {% if 'telemetry' in app.request.attributes.get('_route') %}
-            <li class="active"><a href="{{ path('my_telemedicine_telemetry') }}">Telemetria</a></li>
+            <li class="active"><a href="{{ path('my_telemedicine_telemetry') }}">{% trans %}Telemetría{% endtrans %}</a></li>
             {% else %}
-            <li><a href="{{ path('my_telemedicine_telemetry')}}">Telemetria</a></li>
-            {% endif %}
-            
-             {% if 'formularios' in app.request.attributes.get('_route') %}
-            <li class="active"><a href="{{ path('my_telemedicine_formularios')}}">Formularios</a></li>
-            {% else %}
-            <li><a href="{{ path('my_telemedicine_formularios')}}">Formularios</a></li>
-            {% endif %}
-             
-             
-            {% if 'user' in app.request.attributes.get('_route') %}
-            <li class="active"><a href="{{ path('user')}}">Usuarios</a></li>
-            {% else %}
-            <li><a href="{{ path('user')}}">Usuarios</a></li>
+            <li><a href="{{ path('my_telemedicine_telemetry')}}">{% trans %}Telemetría{% endtrans %}</a></li>
             {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
@@ -62,5 +49,5 @@
             <script src="{{asset('bundles/mytelemedicine/js/bootstrap.min.js')}}"></script>
         {% endblock %}
     </body>
-    <footer style="text-align:center;">{% block footer %}Contacto: {{ contact_email }}{% endblock %}</footer>
+    <footer style="text-align:center;">{% block footer %}{% trans %}Contacto{% endtrans %}: {{ contact_email }}{% endblock %}</footer>
 </html>

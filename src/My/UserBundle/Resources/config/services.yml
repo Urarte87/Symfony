@@ -2,3 +2,15 @@ services:
 #    my_user.example:
 #        class: My\UserBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+  user.login_listener:
+    class:  My\UserBundle\Listener\LoginListener
+    arguments: [ @router ]
+    tags: 
+      - { name: kernel.event_listener, event: security.interactive_login, method: onInteractiveLogin }
+      
+      
+  locale.locale_listener:
+    class: My\UserBundle\Listener\LocaleListener
+    arguments: ["%kernel.default_locale%"]
+    tags:
+       - { name: kernel.event_subscriber }
